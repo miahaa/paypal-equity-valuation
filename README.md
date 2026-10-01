@@ -1,23 +1,10 @@
 # PayPal Equity Valuation
 
-A fundamental equity valuation of PayPal Holdings, Inc. using historical financial statement analysis, a five-year operating forecast, discounted cash flow valuation, comparable-company analysis, and sensitivity testing.
+Fundamental equity valuation of PayPal Holdings, Inc. using historical financial statement analysis, a five-year operating forecast, discounted cash flow valuation, comparable-company analysis, sensitivity testing, Excel, and Python.
 
-## Project Overview
+**Project status:** Complete
 
-This project evaluates PayPal's historical financial performance and estimates its equity value using multiple valuation approaches.
-
-The analysis focuses on:
-
-- Revenue growth
-- Operating profitability
-- Net income and EPS
-- Free cash flow generation
-- Capital structure
-- Share repurchases
-- Five-year financial forecasting
-- Discounted Cash Flow valuation
-- Comparable-company valuation
-- WACC and terminal-value sensitivity
+[Excel valuation model](models/paypal_valuation_model.xlsx) · [Python analysis notebook](analysis/paypal_financial_analysis.ipynb) · [Equity research report](report/PayPal_Equity_Valuation_Report.pdf)
 
 ## Key Results
 
@@ -29,35 +16,17 @@ The analysis focuses on:
 | EV/EBITDA | $49.17 |
 | Reference Market Price | $52.53 |
 
-The wide valuation range illustrates how strongly equity valuation depends on assumptions regarding future growth, profitability, discount rates, and comparable-company selection.
+Reference market price used in the project: **September 30, 2026**.
+
+The range illustrates how valuation changes with assumptions about growth, profitability, discount rates, and peer selection.
 
 ## Historical Performance
 
-PayPal generated revenue of approximately:
+PayPal revenue increased from **$25.4B in 2021 to $33.2B in 2025**, representing approximately **6.9% CAGR**. Annual revenue growth slowed to approximately **4.3% in 2025**.
 
-- 2021: $25.4B
-- 2022: $27.5B
-- 2023: $29.8B
-- 2024: $31.8B
-- 2025: $33.2B
+Operating margin improved from approximately **16.8% in 2021 to 18.3% in 2025**. Diluted EPS increased from **$3.52 to $5.41**, or approximately **11.3% annualized growth**.
 
-Revenue grew at approximately a 6.9% CAGR from 2021 through 2025.
-
-However, annual revenue growth slowed over the period, reaching approximately 4.3% in 2025.
-
-### Profitability
-
-Operating margin increased from approximately 16.8% in 2021 to 18.3% in 2025.
-
-Net income increased from approximately $4.2B in 2021 to $5.2B in 2025.
-
-Diluted EPS increased from $3.52 to $5.41 over the same period, representing approximately 11.3% annualized growth.
-
-EPS growth exceeded revenue growth partly because PayPal materially reduced its diluted share count through share repurchases.
-
-### Free Cash Flow
-
-Free cash flow remained strong but more volatile than revenue:
+Free cash flow remained substantial but more volatile:
 
 | Year | Free Cash Flow |
 |---|---:|
@@ -67,15 +36,11 @@ Free cash flow remained strong but more volatile than revenue:
 | 2024 | $6.8B |
 | 2025 | $5.6B |
 
-2025 free cash flow margin was approximately 16.8%.
+PayPal also materially reduced diluted shares outstanding through repurchases, helping EPS grow faster than revenue.
 
-PayPal also repurchased approximately $6.1B of shares during 2025, exceeding annual free cash flow for the period.
+## Forecast
 
-## Financial Forecast
-
-The model includes a five-year forecast from 2026E through 2030E.
-
-Base-case assumptions include:
+The model forecasts 2026E–2030E using a moderate-growth base case.
 
 | Assumption | Base Case |
 |---|---:|
@@ -90,11 +55,9 @@ Base-case assumptions include:
 | CapEx / Revenue | 2.6% |
 | Change in NWC / Revenue | 1.0% |
 
-The forecast assumes moderate revenue growth combined with gradual operating-margin improvement.
+## DCF Valuation
 
-## Discounted Cash Flow Valuation
-
-Unlevered free cash flow is calculated as:
+Unlevered free cash flow is modeled as:
 
 ```text
 NOPAT
@@ -104,48 +67,16 @@ NOPAT
 = Unlevered Free Cash Flow
 ```
 
-The projected cash flows are discounted using WACC.
+The base case uses approximately:
 
-### WACC
+- **WACC:** 9.2%
+- **Terminal growth rate:** 2.5%
 
-The model estimates a WACC of approximately 9.2%.
-
-The calculation incorporates:
-
-- Risk-free rate
-- PayPal equity beta
-- Equity risk premium
-- Cost of debt
-- Corporate tax rate
-- Market-value capital structure
-
-### Terminal Value
-
-The base case uses:
-
-```text
-WACC: ~9.2%
-Terminal Growth Rate: 2.5%
-```
-
-Using these assumptions, the DCF produces an implied equity value of approximately:
-
-**$87.08 per share**
-
-## Sensitivity Analysis
-
-Because terminal value represents a significant portion of DCF enterprise value, the project tests different combinations of:
-
-- WACC
-- Terminal growth rate
-
-The sensitivity analysis demonstrates that relatively small changes in long-term assumptions can materially affect implied share price.
-
-This reinforces why a DCF should be interpreted as a valuation range rather than a single precise estimate.
+The resulting DCF implied value is approximately **$87.08 per share**.
 
 ## Comparable Company Analysis
 
-PayPal was compared with payment and financial-technology companies including:
+Peer companies include:
 
 - Block
 - Fiserv
@@ -153,108 +84,62 @@ PayPal was compared with payment and financial-technology companies including:
 - Visa
 - Mastercard
 
-Primary valuation metrics considered include:
+Block, Fiserv, and Global Payments are used as the closer operating peer group for selected median multiples. Visa and Mastercard are retained as reference companies because their network-based business models and margins differ materially from PayPal's.
 
-- Forward P/E
-- EV / Sales
-- EV / EBITDA
-- Price / Free Cash Flow
+Metrics considered include Forward P/E, EV/Sales, EV/EBITDA, and Price/FCF.
 
-Block, Fiserv, and Global Payments were used as the closer operating peer group when calculating selected median multiples.
+## Sensitivity Analysis
 
-Visa and Mastercard were retained as reference companies but were treated separately because their payment-network business models and profitability profiles differ materially from PayPal's.
-
-## Valuation Cross-Check
-
-Different valuation methodologies produced substantially different results:
-
-```text
-Forward P/E     $92.74
-DCF             $87.08
-P/FCF           $65.67
-EV/EBITDA       $49.17
-Market Price    $52.53
-```
-
-The DCF and Forward P/E approaches produced the highest values, while the EV/EBITDA methodology generated a result closer to the reference market price.
-
-The difference highlights the importance of understanding what each valuation multiple captures rather than relying on a single methodology.
+The model tests different combinations of WACC and terminal growth. Small changes in these assumptions can materially affect implied share price, so the DCF is best interpreted as a valuation range rather than a single precise estimate.
 
 ## Key Takeaways
 
-The historical analysis suggests several important trends:
+1. Revenue continues to grow, but growth has slowed.
+2. Operating profitability improved by 2025.
+3. EPS growth exceeded revenue growth, partly because of share repurchases.
+4. Free cash flow remains strong but is more volatile than revenue.
+5. The valuation is sensitive to long-term growth and discount-rate assumptions.
+6. Relative valuation depends meaningfully on peer selection and the multiple used.
 
-1. PayPal continues to grow, but revenue growth has slowed.
-
-2. Operating profitability improved despite slower top-line growth.
-
-3. EPS grew faster than revenue, partly because aggressive share repurchases reduced diluted shares outstanding.
-
-4. Free cash flow remains substantial but has been more volatile than revenue.
-
-5. PayPal's estimated value is particularly sensitive to long-term growth expectations and the discount rate.
-
-6. Relative valuation varies substantially depending on which peer group and valuation multiple are used.
-
-## Risks to the Valuation
-
-Major risks include:
+## Risks
 
 - Slower payment-volume or revenue growth
 - Competitive pressure from other payment platforms
 - Margin deterioration
-- Higher-than-expected capital requirements
+- Higher capital requirements
 - Changes in consumer spending
-- Regulatory changes affecting digital payments
+- Digital-payments regulation
 - Higher interest rates and discount rates
-- Share repurchases creating less value if executed at unattractive prices
-- Terminal-growth assumptions proving too optimistic
+- Poor capital allocation through share repurchases
+- Overly optimistic terminal-growth assumptions
 
-## Project Structure
+## Repository Structure
 
 ```text
 paypal-equity-valuation/
-│
 ├── README.md
-│
-├── data/
-│
+├── analysis/
+│   └── paypal_financial_analysis.ipynb
 ├── models/
 │   └── paypal_valuation_model.xlsx
-│
-├── analysis/
-│   └── charts/
-│
 └── report/
+    └── PayPal_Equity_Valuation_Report.pdf
 ```
 
-## Excel Model
-
-The full model is available here:
-
-`models/paypal_valuation_model.xlsx`
-
-The workbook contains:
-
-- Historical financial statements
-- Key financial metrics
-- Five-year forecast
-- WACC calculation
-- DCF valuation
-- Terminal-value analysis
-- Sensitivity analysis
-- Comparable-company analysis
-- Valuation summary
-
-## Tools Used
+## Tools and Skills Demonstrated
 
 - Microsoft Excel
+- Python
+- pandas
+- Matplotlib
 - Financial statement analysis
-- Discounted Cash Flow modeling
-- Comparable-company valuation
-- CAPM / WACC analysis
-- SEC filings
-- GitHub
+- Financial forecasting
+- DCF valuation
+- CAPM / WACC
+- Comparable-company analysis
+- Sensitivity analysis
+- SEC filing research
+- Git / GitHub
 
 ## Disclaimer
 
